@@ -190,6 +190,7 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${appengine.target.version}</version>
                 <configuration>
+                    <useJava6>true</useJava6>
                 </configuration>
             </plugin>
             

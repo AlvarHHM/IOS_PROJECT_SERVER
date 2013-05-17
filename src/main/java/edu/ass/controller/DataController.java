@@ -33,18 +33,6 @@ public class DataController {
     String importData() throws SQLException {
         DriverManager.registerDriver(new AppEngineDriver());
         importTable("party");
-
-
-
-
-
-
-
-
-
-
-
-
         return "hello";
     }
     

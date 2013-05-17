@@ -58,6 +58,28 @@ public class BasicInfoController {
         return new Gson().toJson(pq.asList(FetchOptions.Builder.withDefaults()));
     }
     
+    @RequestMapping(value="poll", method=RequestMethod.POST)
+    public @ResponseBody String addPoll(
+            @RequestParam(value="userid",required=true)int userid,
+            @RequestParam(value="gcid",required=true)int gcid,
+            @RequestParam(value="listid",required=true)int listid,
+            @RequestParam(value="electorid",required=true)int electorid 
+            ){
+        
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Entity entity = new Entity("polldata");
+        entity.setProperty("userid",userid);
+        entity.setProperty("gcid", gcid);
+        entity.setProperty("listid", listid);
+        entity.setProperty("electorid", electorid);
+        datastore.put(entity);
+        
+        
+        return "";
+        
+    }
+    
+    
     
     
     @RequestMapping(value="/test",method=RequestMethod.POST)
